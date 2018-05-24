@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES 6 Features</title>
+</head>
+<body>
+    <h1>ES 6 Features</h1>
+    <script>
+        class Person {
+            constructor(fname, lname, email) {
+                this.fname = fname;
+                this.lname = lname;
+                this.email = email;
+            }
+            print() {
+                console.log(`Name = ${this.fname} ${this.lname}, email = ${this.email}`);
+            }
+
+            toString() {
+                return `Fname = ${this.fname}
+Lname = ${this.lname}
+Email = ${this.email}`
+            }
+        }
+        // https://kangax.github.io/compat-table/es6/
+
+        var p1 = new Person('Vinod', 'Kumar', 'vinod@vinod.co');
+        var p2 = new Person('Shyam', 'Sundar');
+        p1.print();
+        p2.print();
+        alert(p1); // calls p1.toString() implicitly
+        alert(p2); // calls p2.toString() implicitly
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="libraries/jquery-3.3.1.js"></script>
+
+    <script>
+        // console.log('typeof jQuery', typeof jQuery);
+        // console.log('typeof $', typeof $);
+        // console.log('jQuery == $', jQuery == $);
+
+        // $ can be used as function or an object
+        // when used as a function, depending on the parameter type,
+        // it behaves differently
+        
+        // Typically the arguments can be either
+        // 1. a callback fuction -> DOM ready event handler
+        // 2. a string (selector or an HTML tag)
+
+        // if a function is supplied as an argument to the $ function,
+        // the argument function is executed by jquery only after
+        // the DOM is ready
+
+        // syntax:
+        // $(function(){});
+
+        $(function(){
+            console.log('DOM is now ready!');
+        });
+
+        // if a string (selector) is supplied, then jquery returns 
+        // an array of jQuery objects matching the given selector
+        $(function(){
+            var arr = $("li");
+            console.log(arr);
+            
+            arr = $("ol li");
+            console.log('for "ol li" arr.length is', arr.length);
+            
+            arr = $("ul  li");
+            console.log('for "ul li" arr.length is', arr.length);
+
+            arr = $("ul >  li");
+            console.log('for "ul > li" arr.length is', arr.length);
+
+            $("ul > li").css('border', '1px dotted red')
+                .css('padding', '5px')
+                .css('border-radius', '10px')
+                .css('margin', '5px');
+        });
+        
+    </script>
+</head>
+<body>
+    <h1>Hello, world!</h1>
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2
+            <ol>
+                <li>sub list item 1</li>
+                <li>sub list item 2</li>
+                <li>sub list item 3</li>
+                <li>sub list item 4</li>
+            </ol>
+        </li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+        <li>list item 5</li>
+    </ul>
+</body>
+</html>

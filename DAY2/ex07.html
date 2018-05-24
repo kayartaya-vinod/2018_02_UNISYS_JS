@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery Demo</title>
+    <script src="/libraries/jquery-3.3.1.js"></script>
+
+    <script>
+        $(function(){
+            // when the DOM is ready....
+            
+            // all <li> tags inside a <ul> with an id 'sidebar1'
+            // $('ul#sidebar1 li').css('border', '2px solid red');
+            // $('ul[id=sidebar1] li').css('border', '2px solid blue');
+            // $('ul.list-group.sidebar li').css('border', '2px solid green');
+
+            // select all 'active' list items
+            $('.active').css('border', '2px solid red');
+
+            // select the 3rd <li> element
+            $('li:eq(2)').css('border', '2px solid blue');
+
+            // select the 3rd child <li> of first 2 <ul> elements
+            $('div:first ul:first > li:nth-child(3)').css('border', '2px solid blue');
+            $('div:first ul:eq(1) > li:nth-child(3)').css('border', '2px solid blue');
+        
+            
+            // create a new HTML tag
+            // $('div#links > a').after('<br>');
+            $('<br>').insertAfter('div#links > a');
+            
+            // find all <a> tags inside '#links_1' element, and wrap 
+            // each of them with a <div> tag
+            $('#links_1 > a').wrap('<div>');
+        });
+    </script>
+</head>
+<body>
+    <h1>jQuery Demo</h1>
+    <div id="links_1">
+        <a href="https://vinod.co">vinod.co</a>
+        <a href="https://youtube.com">youtube</a>
+        <a href="http://example.com">example.com</a>
+        <a href="https://facebook.com">facebook</a>
+    </div>
+    <hr>
+    <div id="links">
+        <a href="https://vinod.co">vinod.co</a>
+        <a href="https://youtube.com">youtube</a>
+        <a href="http://example.com">example.com</a>
+        <a href="https://facebook.com">facebook</a>
+    </div>
+
+    <div style="width: 300px; ">
+        <ul id="sidebar1" class="list-group sidebar">
+            <li class="list-group-item">Menu item 1</li>
+            <li class="list-group-item" data-menu-id="m2">Menu item 2</li>
+            <li class="list-group-item">Menu item 3</li>
+            <li class="list-group-item active">Menu item 4</li>
+            <li class="list-group-item">Menu item 5</li>
+        </ul>
+        <ul class="list-group">
+            <li class="list-group-item">List item 1</li>
+            <li class="list-group-item active">List item 2</li>
+            <li class="list-group-item">List item 3</li>
+            <li class="list-group-item">List item 4</li>
+            <li class="list-group-item">List item 5</li>
+        </ul>
+
+        <ul class="list-group">
+            <li class="list-group-item">List item 1</li>
+            <li class="list-group-item active">List item 2</li>
+            <li class="list-group-item">List item 3</li>
+            <li class="list-group-item">List item 4</li>
+            <li class="list-group-item">List item 5</li>
+        </ul>
+    </div>
+
+    
+
+</body>
+</html>

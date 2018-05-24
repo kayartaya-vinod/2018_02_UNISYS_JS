@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./libraries/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+            $("ul").css('width', '400px');
+
+            $("li")
+                .css('border-left', '2px solid #ccc')
+                .css('border-bottom', '2px solid #ccc')
+                .css('border-right', '2px solid #ccc')
+                .css('list-style', 'none')
+                .css('padding', '5px')
+
+            $("li:first")
+                .css('border-top', '2px solid #ccc')
+                .css('border-top-left-radius', '7px')
+                .css('border-top-right-radius', '7px');
+
+            $("li:last")
+                .css('border-bottom-left-radius', '7px')
+                .css('border-bottom-right-radius', '7px');
+
+            $("li:odd").css('background-color', '#ddd');
+
+            
+        });
+    </script>
+</head>
+<body>
+    <h1>jQuery demo</h1>
+
+    
+    <hr>
+    <ul>
+        <li>list item 1</li>
+        <li>list item 2</li>
+        <li>list item 3</li>
+        <li>list item 4</li>
+        <li>list item 5</li>
+        <li>list item 6</li>
+        <li>list item 7</li>
+        <li>list item 8</li>
+        <li>list item 9</li>
+        <li>list item 10</li>
+        <li>list item 11</li>
+        <li>list item 12</li>
+        <li>list item 13</li>
+        <li>list item 14</li>
+        <li>list item 15</li>
+    </ul>
+
+</body>
+</html>

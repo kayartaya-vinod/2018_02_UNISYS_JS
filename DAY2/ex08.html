@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="libraries/jquery-3.3.1.js"></script>
+
+    <script>
+        $(function(){
+            // when the DOM is ready...
+            $('img[src^="images/"]')
+                .wrapAll($('<div>').attr('id', 'imgStrip'))
+                .css({
+                    width: '100px',
+                    height: '100px',
+                    margin: '5px',
+                    borderRadius: '50%',
+                    opacity: '.3'
+                })
+                .on('mouseover', function(){
+                    // the current element on which the event occurs
+                    // can be accessed as $(this)
+                    $(this).css('opacity', '1');
+                })
+                .mouseout(function(){ 
+                    $(this).css('opacity', '.3'); 
+                });
+        });
+    </script>
+</head>
+<body>
+    
+    <h1 id="heading">Working with Images</h1>
+
+    <img src="images/giraffe.jpeg">
+    <img src="images/deer.jpeg">
+    <img src="images/pig.jpeg">
+    <img src="images/rhyno.jpeg">
+    <img src="images/ape.jpeg">
+    <img src="images/cricket.jpeg">
+    <img src="images/football.jpeg">
+    <img src="images/surf.jpeg">
+    <img src="images/city1.jpeg">
+    <img src="images/city2.jpeg">
+    <img src="images/city3.jpeg">
+
+</body>
+</html>

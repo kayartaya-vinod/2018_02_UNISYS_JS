@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJAX Demo</title>
+</head>
+<body>
+    <h1>AJAX Demo</h1>
+    <hr>
+
+    <!-- https://vinod.co/randomdata/contacts/22 -->
+
+    <!-- div>form>div>(label{Enter id}+div>input#userid) -->
+    <div>
+        <form>
+            <div>
+                <label for="">Enter id</label>
+                <div><input type="text" id="userid"></div>
+                <button type="button" id="btnFetch">Fetch data</button>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <div><label>Name: </label>
+            <span id="name"></span>
+        </div>
+        <div><label>Contact details: </label>
+            <span id="contact_details"></span>
+        </div>
+        <div><label>Address: </label>
+            <span id="address"></span>
+        </div>
+    </div>
+
+    <img id="userImage" src="" alt="">
+
+    <script>
+        document.getElementById("btnFetch").onclick = function(){
+            var userid = document.querySelector("#userid").value;
+            if(userid=="" || isNaN(userid)) {
+                alert('User id must be a number');
+                document.querySelector("#userid").select();
+                document.querySelector("#userid").focus();
+                return;
+            }
+
+            var url = `https://vinod.co/randomdata/contacts/${userid}`;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url, true);
+            xhr.onreadystatechange = function() {
+                if(xhr.readyState==4) {
+                    var data = xhr.responseText;
+                    data = JSON.parse(data);
+                    if(!data.id) {
+                        alert('No data found for id: ' + userid);
+                        document.querySelector("#userid").select();
+                        document.querySelector("#userid").focus();
+                        return;
+                    }
+
+                    var type = data.gender=='Male'? 'men': 'women';
+                    var imgUrl = `https://vinod.co/randomdata/images/${type}/${userid}`;
+                    document.querySelector("#userImage").setAttribute('src', imgUrl);
+
+                    setInnerHtml("#name", data.first_name);
+                    setInnerHtml("#contact_details", data.email);
+                    setInnerHtml("#address", data.address);
+                }
+            };
+            xhr.send();
+            
+        };
+
+        function setInnerHtml(selector, value) {
+            document.querySelector(selector).innerHTML = value;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // constructor Person
+        // function Person() {
+        //     this.fname = arguments[0];
+        //     this.lname = arguments[1];
+        //     this.email = arguments[2];
+        // }
+
+        function Person(fname, lname, email) {
+            this.fname = fname;
+            this.lname = lname;
+            this.email = email;
+
+        }
+
+        Person.prototype.print = function() {
+            console.log('fname =', this.fname);
+            console.log('lname =', this.lname);
+            console.log('email =', this.email);
+        };
+
+        // hides the inherited toString() function from Object (overriding)
+        Person.prototype.toString = function() {
+            return this.fname + " " + this.lname + " (" + this.email + ")";
+        }
+
+        var p1 = new Person('Vinod', 'Kumar', 'vinod@vinod.co');
+        var p2 = new Person('Shyam', 'Sundar');
+
+        console.log(p1);
+        console.log(p2);
+
+    </script>
+</body>
+</html>

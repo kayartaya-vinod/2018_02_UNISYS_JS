@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script>
+        function sleep(duration) {
+            var st = Date.now();
+            while((Date.now()-st) < duration);
+        }
+
+        // param 1: callback, a function
+        // function executeAfterDelay(callback, duration) {
+        //     if(typeof callback!='function') {
+        //         throw new Error('callback must be a function');
+        //     }
+        //     sleep(duration);
+        //     callback();
+        // }
+
+        console.log('start of script');
+        
+        setTimeout(function(){
+            console.log('this is my callback method code')
+        }, 1000);
+
+        sleep(5000);
+
+        console.log('end of script');
+    </script>
+</body>
+</html>

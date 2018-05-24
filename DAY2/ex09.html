@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="libraries/jquery-3.3.1.js"></script>
+
+    <script>
+        $(function(){
+            $('img[src*="images/"]')
+            .wrapAll('<div id="images">')
+            .css({
+                position: 'absolute',
+                width: '500px',
+                height: '500px',
+                cursor: 'pointer'
+            })
+            .click(function(){
+                $(this).fadeOut(500, function(){
+                    $(this).prependTo('#images').css('display', 'block');
+                });
+            });
+
+
+            // creating two navigation buttons
+
+            var navbar = $('<div>')
+                .attr('id', 'navbar')
+                .prependTo('body');
+
+            $('<button>').attr('id', 'btnPrev')
+                .text('Previous')
+                .addClass('btn')
+                .click(function(){
+                    $('#images > img:first')
+                        .appendTo('#images');
+                })
+                .appendTo(navbar);
+            
+            $('<button>').attr('id', 'btnNext')
+                .text('Next')
+                .addClass('btn')
+                .click(function(){
+                    $('#images > img:last')
+                        .prependTo('#images');
+                })
+                .appendTo(navbar);
+
+        });
+    </script>
+</head>
+<body>
+    
+    <h1 id="heading">Working with Images</h1>
+
+    <img src="images/giraffe.jpeg">
+    <img src="images/deer.jpeg">
+    <img src="images/pig.jpeg">
+    <img src="images/rhyno.jpeg">
+    <img src="images/ape.jpeg">
+    <img src="images/cricket.jpeg">
+    <img src="images/football.jpeg">
+    <img src="images/surf.jpeg">
+    <img src="images/city1.jpeg">
+    <img src="images/city2.jpeg">
+    <img src="images/city3.jpeg">
+
+</body>
+</html>
